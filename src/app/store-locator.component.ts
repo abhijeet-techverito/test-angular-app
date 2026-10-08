@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { CitySearchComponent } from './city-search.component';
 
 @Component({
   selector: 'app-store-locator',
@@ -191,25 +192,67 @@ export class StoreLocatorComponent implements OnInit {
     } catch (e) { }
   }
 
-  // TODO sort the list by distance once this works
+  locating = false;
+  locateMsg = '';
+  locateError = '';
+  @ViewChild(CitySearchComponent) citySearch?: CitySearchComponent;
+
+  clearSearch() {
+    if (this.citySearch) {
+      this.citySearch.clear();
+    }
+    this.searchText = '';
+    this.clickCollectOnly = false;
+    this.doFilter();
+  }
+
+  // great-circle distance in km
+  distanceKm(lat1: number, lon1: number, lat2: number, lon2: number) {
+    var toRad = (deg: number) => deg * Math.PI / 180;
+    var dLat = toRad(lat2 - lat1);
+    var dLon = toRad(lon2 - lon1);
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
   locate() {
+    this.locateMsg = '';
+    this.locateError = '';
     if (!navigator.geolocation) {
+      this.locateError = 'Location is not supported by this browser.';
       return;
     }
-    navigator.geolocation.getCurrentPosition((pos) => {
-      var best: any = null;
-      var bestD = 999999;
-      for (var i = 0; i < this.stores.length; i++) {
-        var dx = this.stores[i].lat - pos.coords.latitude;
-        var dy = this.stores[i].lon - pos.coords.longitude;
-        var d = dx * dx + dy * dy;
-        if (d < bestD) {
-          bestD = d;
-          best = this.stores[i];
+    this.locating = true;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        this.locating = false;
+        var best: any = null;
+        var bestD = Infinity;
+        for (var i = 0; i < this.stores.length; i++) {
+          var s = this.stores[i];
+          var d = this.distanceKm(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon);
+          s.distance = d;
+          if (d < bestD) {
+            bestD = d;
+            best = s;
+          }
         }
+        if (!best) {
+          this.locateError = 'No stores were found near you.';
+          return;
+        }
+        this.clearSearch();
+        this.sortBy = 'distance';
+        this.selectStore(best);
+        this.applySort();
+        this.locateMsg = 'Nearest store: ' + best.name + ' - ' + bestD.toFixed(1) + ' km away';
+      },
+      () => {
+        this.locating = false;
+        this.locateError = 'Could not get your location. Check your browser permissions and try again.';
       }
-      console.log('nearest', best && best.name);
-    });
+    );
   }
 
   shareStore(s: any) {
@@ -297,6 +340,16 @@ export class StoreLocatorComponent implements OnInit {
         var bm = this.minsUntilClose(b);
         if (am != bm) {
           return am - bm;
+        }
+        return a.name < b.name ? -1 : 1;
+      });
+    } else if (this.sortBy == 'distance') {
+      // nearest to the located position first
+      list.sort((a, b) => {
+        var ad = typeof a.distance == 'number' ? a.distance : Infinity;
+        var bd = typeof b.distance == 'number' ? b.distance : Infinity;
+        if (ad != bd) {
+          return ad - bd;
         }
         return a.name < b.name ? -1 : 1;
       });

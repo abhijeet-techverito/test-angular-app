@@ -5,7 +5,9 @@
   </header>
 
   <app-city-search [stores]="stores" (searchChange)="onSearch($event)" (pick)="onPick($event)"></app-city-search>
-  <button type="button" class="link-btn" (click)="locate()">Use my location</button>
+  <button type="button" class="link-btn" (click)="locate()" [disabled]="locating">{{ locating ? 'Locating...' : 'Use my location' }}</button>
+  <span class="locate-msg" *ngIf="locateMsg">{{ locateMsg }}</span>
+  <span class="locate-err" *ngIf="locateError">{{ locateError }}</span>
   <div class="filters">
     <label class="cc-filter">
       <input type="checkbox" [(ngModel)]="clickCollectOnly" (change)="doFilter()" />
@@ -18,6 +20,7 @@
         <option value="city">City</option>
         <option value="open">Open now</option>
         <option value="closing">Closing soon</option>
+        <option value="distance">Distance</option>
       </select>
     </label>
   </div>
@@ -32,7 +35,7 @@
             <div class="store-name"><span class="fav" *ngIf="isFav(s)">&#9733;</span>{{s.name}}
               <span class="badge" [class.open]="isOpenNow(s)">{{ isOpenNow(s) ? 'Open now' : 'Closed' }}</span>
             </div>
-            <div class="store-addr">{{s.addr}}, {{s.city}} {{s.zip}}</div>
+            <div class="store-addr">{{s.addr}}, {{s.city}} {{s.zip}}<span class="store-dist" *ngIf="s.distance != null"> &middot; {{ s.distance.toFixed(1) }} km</span></div>
             <div class="store-phone">{{s.phone}}</div>
           </div>
         </li>
