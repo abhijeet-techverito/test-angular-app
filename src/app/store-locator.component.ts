@@ -275,6 +275,16 @@ export class StoreLocatorComponent implements OnInit {
         }
         return a.name < b.name ? -1 : 1;
       });
+    } else if (this.sortBy == 'closing') {
+      // open stores that close soonest first
+      list.sort((a, b) => {
+        var am = this.minsUntilClose(a);
+        var bm = this.minsUntilClose(b);
+        if (am != bm) {
+          return am - bm;
+        }
+        return a.name < b.name ? -1 : 1;
+      });
     } else {
       list.sort((a, b) => a.name < b.name ? -1 : (a.name > b.name ? 1 : 0));
     }
@@ -423,6 +433,20 @@ export class StoreLocatorComponent implements OnInit {
     // still inside yesterday's late hours
     var pr = rows[(clk.day + 6) % 7];
     return !!pr && !pr.closed && clk.mins + 1440 < pr.close;
+  }
+
+  minsUntilClose(s: any) {
+    if (!this.isOpenNow(s)) {
+      return 999999;
+    }
+    var rows = this.parseHours(s.hours);
+    var clk = this.storeClock(s);
+    var day = clk.day;
+    var closeAt = rows[day].close;
+    if (rows[day].closed || clk.mins < rows[day].open || clk.mins >= rows[day].close) {
+      closeAt = rows[(day + 6) % 7].close;
+    }
+    return closeAt - clk.mins;
   }
 
   hoursRows(s: any) {
