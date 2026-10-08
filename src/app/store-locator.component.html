@@ -1,0 +1,125 @@
+<div class="locator">
+  <header class="locator-head">
+    <h1>Find a store</h1>
+    <p class="sub">Search by city, postcode or store name</p>
+  </header>
+
+  <app-city-search [stores]="stores" (searchChange)="onSearch($event)" (pick)="onPick($event)"></app-city-search>
+  <button type="button" class="link-btn" (click)="locate()">Use my location</button>
+  <div class="filters">
+    <label class="cc-filter">
+      <input type="checkbox" [(ngModel)]="clickCollectOnly" (change)="doFilter()" />
+      Click &amp; collect only
+    </label>
+    <label class="sort">
+      Sort by
+      <select [(ngModel)]="sortBy" (change)="applySort()">
+        <option value="name">Name</option>
+        <option value="city">City</option>
+        <option value="open">Open now</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="cols">
+    <section class="list">
+      <ul class="store-list">
+        <li *ngFor="let s of filtered" class="store-item" [id]="'store-' + s.id"
+            [class.active]="selected && selected.id == s.id" (click)="selectStore(s)">
+          <div class="store-name"><span class="fav" *ngIf="isFav(s)">&#9733;</span>{{s.name}}
+            <span class="badge" [class.open]="isOpenNow(s)">{{ isOpenNow(s) ? 'Open now' : 'Closed' }}</span>
+          </div>
+          <div class="store-addr">{{s.addr}}, {{s.city}} {{s.zip}}</div>
+          <div class="store-phone">{{s.phone}}</div>
+        </li>
+      </ul>
+      <p *ngIf="filtered.length == 0" class="empty">No stores found for "{{searchText}}"</p>
+    </section>
+
+    <section class="panel" *ngIf="selected">
+      <h2>{{detail.name}} <span class="loading" *ngIf="detailLoading">updating...</span></h2>
+      <p class="p-addr">{{detail.addr}}<br>{{detail.city}} {{detail.zip}}</p>
+      <p class="p-phone"><a href="tel:{{detail.phone}}">{{detail.phone}}</a></p>
+      <a class="dir" target="_blank" href="https://www.google.com/maps/search/?api=1&query={{detail.lat}},{{detail.lon}}">Get directions</a>
+      <div class="actions">
+        <button type="button" class="link-btn" (click)="toggleFav(detail)">{{ isFav(detail) ? 'Saved' : 'Save store' }}</button>
+        <button type="button" class="link-btn" (click)="shareStore(detail)">Share</button>
+        <span class="share-msg" *ngIf="shareMsg">{{shareMsg}}</span>
+      </div>
+      <ul class="services" *ngIf="detail.services && detail.services.length">
+        <li *ngFor="let sv of detail.services">{{sv}}</li>
+      </ul>
+      <p class="featured" *ngIf="detail.featuredSlug">Popular here: <strong>{{ productName(detail.featuredSlug) }}</strong></p>
+
+      <div class="hours">
+        <button type="button" class="hours-toggle" (click)="toggleHours()">
+          <span class="open-label" [class.is-open]="isOpenNow(detail)">{{ openLabel(detail) }}</span>
+          <span class="chev">{{ hoursOpen ? '&#9650;' : '&#9660;' }}</span>
+        </button>
+        @if (hoursOpen) {
+          <table class="hours-table">
+            @for (r of hoursRows(detail); track r.day) {
+              <tr [class.today]="r.today">
+                <td>{{ r.day }}</td>
+                <td>{{ r.label }}</td>
+              </tr>
+            }
+          </table>
+        }
+      </div>
+
+      <div class="callback">
+        <h3>Request a callback</h3>
+        <div *ngIf="cbSent" class="cb-ok">
+          <p>Thanks, we will ring you from {{detail.name}}. Your reference is <strong>{{cbRef}}</strong>.</p>
+          <button type="button" class="link-btn" (click)="newCallback()">Request another</button>
+        </div>
+        <form *ngIf="!cbSent" #cbForm="ngForm" (ngSubmit)="submitCallback(cbForm)" novalidate>
+          <div class="field">
+            <label for="cbName">Your name</label>
+            <input id="cbName" name="cbName" type="text" [(ngModel)]="cb.name" #cbName="ngModel" required />
+            <span class="err" *ngIf="cbName.invalid && cbName.touched">Name is required</span>
+          </div>
+          <div class="field">
+            <label for="cbPhone">Phone number</label>
+            <input id="cbPhone" name="cbPhone" type="tel" [(ngModel)]="cb.phone" #cbPhone="ngModel" required pattern="\+?[0-9 ()\-]{7,20}" />
+            <span class="err" *ngIf="cbPhone.invalid && cbPhone.touched">{{ cbPhone.errors?.['required'] ? 'Phone is required' : 'Enter a valid phone number' }}</span>
+          </div>
+          <div class="field">
+            <label for="cbEmail">Email (optional)</label>
+            <input id="cbEmail" name="cbEmail" type="email" [(ngModel)]="cb.email" #cbEmail="ngModel" email />
+            <span class="err" *ngIf="cbEmail.invalid && cbEmail.touched">That email does not look right</span>
+          </div>
+          <div class="field two">
+            <div>
+              <label for="cbSlot">Best time</label>
+              <select id="cbSlot" name="cbSlot" [(ngModel)]="cb.slot">
+                <option *ngFor="let sl of slots" [value]="sl.v">{{sl.l}}</option>
+              </select>
+            </div>
+            <div>
+              <label for="cbTopic">About</label>
+              <select id="cbTopic" name="cbTopic" [(ngModel)]="cb.topic">
+                <option *ngFor="let t of topics" [value]="t">{{t}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cbNote">Anything we should know?</label>
+            <textarea id="cbNote" name="cbNote" rows="3" [(ngModel)]="cb.note"></textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="cbMarketing" [(ngModel)]="cb.marketing" />
+            Send me news and offers
+          </label>
+          <p class="err" *ngIf="cbError">{{cbError}}</p>
+          <button type="submit" class="primary" [disabled]="cbBusy">{{ cbBusy ? 'Sending...' : 'Call me back' }}</button>
+        </form>
+      </div>
+
+    </section>
+    <section class="panel placeholder" *ngIf="!selected">
+      <p>Pick a store from the list to see its details.</p>
+    </section>
+  </div>
+</div>

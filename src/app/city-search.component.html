@@ -1,0 +1,11 @@
+<div class="city-search">
+  <input type="text" class="cs-input" [(ngModel)]="text" (input)="onType()" (focus)="open = suggestions.length > 0"
+         (blur)="closeLater()" placeholder="Search by city or postcode" autocomplete="off" />
+  <button type="button" class="cs-clear" *ngIf="text" (click)="clear()" title="Clear">&times;</button>
+  <span class="cs-count" *ngIf="text">{{matchCount}} {{matchCount == 1 ? 'match' : 'matches'}}</span>
+  <ul class="cs-suggest" *ngIf="open && suggestions.length">
+    <li *ngFor="let s of suggestions" (mousedown)="choose(s)">
+      {{s.name}} <small>{{s.city}}</small>
+    </li>
+  </ul>
+</div>

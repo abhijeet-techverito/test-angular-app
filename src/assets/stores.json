@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "name": "Oxford Street Flagship",
+    "city": "London",
+    "address": "212 Oxford Street",
+    "postcode": "W1D 1LA",
+    "phone": "020 7946 0100",
+    "hours": "Mon-Sat 10:00-21:00, Sun 12:00-18:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect",
+      "Alterations"
+    ],
+    "latitude": 51.5154,
+    "longitude": -0.1426,
+    "tz": "Europe/London",
+    "featured_slug": "classic-crew-tee"
+  },
+  {
+    "id": 2,
+    "name": "Soho Late",
+    "city": "London",
+    "address": "14 Berwick Street",
+    "postcode": "W1F 0PX",
+    "phone": "020 7946 0123",
+    "hours": "Mon-Thu 10:00-22:00, Fri-Sat 10:00-02:00, Sun 12:00-18:00",
+    "services": [
+      "Fitting rooms"
+    ],
+    "latitude": 51.5136,
+    "longitude": -0.1365,
+    "tz": "Europe/London",
+    "featured_slug": "vintage-wash-tee"
+  },
+  {
+    "id": 3,
+    "name": "Arndale Manchester",
+    "city": "Manchester",
+    "address": "49 High Street, Arndale Centre",
+    "postcode": "M4 3AQ",
+    "phone": "0161 496 0112",
+    "hours": "Mon-Sat 10:00-21:00; Sun 11:00-17:00",
+    "services": [
+      "Click & collect"
+    ],
+    "latitude": 53.4839,
+    "longitude": -2.2395,
+    "tz": "Europe/London",
+    "featured_slug": "essential-pullover-hoodie"
+  },
+  {
+    "id": 4,
+    "name": "Northern Quarter",
+    "city": "Manchester",
+    "address": "22 Oldham Street",
+    "postcode": "M1 1JQ",
+    "phone": "0161 496 0145",
+    "hours": "Mon-Sun 11:00-00:00",
+    "services": [
+      "Fitting rooms",
+      "Repairs"
+    ],
+    "latitude": 53.4833,
+    "longitude": -2.2358,
+    "tz": "Europe/London",
+    "featured_slug": "slim-fit-jeans"
+  },
+  {
+    "id": 5,
+    "name": "Princes Street",
+    "city": "Edinburgh",
+    "address": "12 Rose Street",
+    "postcode": "EH2 2DJ",
+    "phone": "0131 496 0188",
+    "hours": "Mon-Sat 09:30-18:30, Sun 11:00-17:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect"
+    ],
+    "latitude": 55.9524,
+    "longitude": -3.1975,
+    "tz": "Europe/London",
+    "featured_slug": "quilted-hooded-jacket"
+  },
+  {
+    "id": 6,
+    "name": "Broadmead",
+    "city": "Bristol",
+    "address": "31 Broadmead",
+    "postcode": "BS1 3DX",
+    "phone": "0117 496 0131",
+    "hours": "Mon-Sat 09:00-18:00, Sun 11:00-17:00",
+    "services": [
+      "Click & collect"
+    ],
+    "latitude": 51.459,
+    "longitude": -2.5878,
+    "tz": "Europe/London",
+    "featured_slug": "classic-crew-tee"
+  },
+  {
+    "id": 7,
+    "name": "Briggate",
+    "city": "Leeds",
+    "address": "8 Briggate",
+    "postcode": "LS1 6AL",
+    "phone": "0113 496 0170",
+    "hours": "Mon-Sat 09:00-18:00, Sun closed",
+    "services": [
+      "Fitting rooms"
+    ],
+    "latitude": 53.7973,
+    "longitude": -1.5416,
+    "tz": "Europe/London",
+    "featured_slug": "zip-up-fleece-hoodie"
+  },
+  {
+    "id": 8,
+    "name": "Bullring",
+    "city": "Birmingham",
+    "address": "Unit 14, Bullring",
+    "postcode": "B5 4BU",
+    "phone": "0121 496 0199",
+    "hours": "Mon-Fri 10:00-20:00, Sat 09:00-20:00, Sun 11:00-17:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect",
+      "Alterations"
+    ],
+    "latitude": 52.4774,
+    "longitude": -1.894,
+    "tz": "Europe/London",
+    "featured_slug": "oversized-logo-hoodie"
+  },
+  {
+    "id": 9,
+    "name": "Buchanan Street",
+    "city": "Glasgow",
+    "address": "220 Buchanan Street",
+    "postcode": "G1 2GF",
+    "phone": "0141 496 0123",
+    "hours": "Mon-Sat 09:30-18:00, Sun 11:00-17:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect"
+    ],
+    "latitude": 55.8636,
+    "longitude": -4.2518,
+    "tz": "Europe/London",
+    "featured_slug": "essential-pullover-hoodie"
+  },
+  {
+    "id": 10,
+    "name": "Times Square",
+    "city": "New York",
+    "address": "1500 Broadway",
+    "postcode": "10036",
+    "phone": "(212) 555-0114",
+    "hours": "Mon-Sun 09:00-23:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect"
+    ],
+    "latitude": 40.758,
+    "longitude": -73.9855,
+    "tz": "America/New_York",
+    "featured_slug": "slim-fit-jeans"
+  },
+  {
+    "id": 11,
+    "name": "Michigan Avenue",
+    "city": "Chicago",
+    "address": "835 N Michigan Ave",
+    "postcode": "60611",
+    "phone": "(312) 555-0168",
+    "hours": "Mon-Sat 10:00-20:00, Sun 11:00-18:00",
+    "services": [
+      "Click & collect"
+    ],
+    "latitude": 41.8989,
+    "longitude": -87.6247,
+    "tz": "America/Chicago",
+    "featured_slug": "quilted-hooded-jacket"
+  },
+  {
+    "id": 12,
+    "name": "SoHo NYC",
+    "city": "New York",
+    "address": "110 Prince Street",
+    "postcode": "10012",
+    "phone": "(212) 555-0119",
+    "hours": "Mon-Sat 11:00-20:00, Sun 12:00-18:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect"
+    ],
+    "latitude": 40.7249,
+    "longitude": -73.9979,
+    "tz": "America/New_York",
+    "featured_slug": "vintage-wash-tee"
+  },
+  {
+    "id": 13,
+    "name": "Melrose Avenue",
+    "city": "Los Angeles",
+    "address": "8277 Melrose Ave",
+    "postcode": "90046",
+    "phone": "(323) 555-0143",
+    "hours": "Mon-Sun 10:00-22:00",
+    "services": [
+      "Fitting rooms",
+      "Click & collect"
+    ],
+    "latitude": 34.0838,
+    "longitude": -118.3711,
+    "tz": "America/Los_Angeles",
+    "featured_slug": "lightweight-summer-hoodie"
+  },
+  {
+    "id": 14,
+    "name": "Kurfürstendamm",
+    "city": "Berlin",
+    "address": "Kurfürstendamm 26",
+    "postcode": "10719",
+    "phone": "030 5557 0166",
+    "hours": "Mon-Sat 10:00-20:00, Sun closed",
+    "services": [
+      "Fitting rooms"
+    ],
+    "latitude": 52.5036,
+    "longitude": 13.3311,
+    "tz": "Europe/Berlin",
+    "featured_slug": "classic-crew-tee"
+  }
+]
