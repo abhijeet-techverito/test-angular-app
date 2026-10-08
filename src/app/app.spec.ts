@@ -28,6 +28,6 @@ describe('App', () => {
     const cmpRef = TestBed.createComponent(App);
     cmpRef.detectChanges();
     const compiled = cmpRef.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Find a store');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Find a Store Near You');
   });
 });
