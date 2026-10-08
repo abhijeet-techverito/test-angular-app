@@ -27,11 +27,14 @@
       <ul class="store-list">
         <li *ngFor="let s of filtered" class="store-item" [id]="'store-' + s.id"
             [class.active]="selected && selected.id == s.id" (click)="selectStore(s)">
-          <div class="store-name"><span class="fav" *ngIf="isFav(s)">&#9733;</span>{{s.name}}
-            <span class="badge" [class.open]="isOpenNow(s)">{{ isOpenNow(s) ? 'Open now' : 'Closed' }}</span>
+          <img class="store-thumb" [src]="s.photo" [alt]="s.name" loading="lazy" />
+          <div class="store-info">
+            <div class="store-name"><span class="fav" *ngIf="isFav(s)">&#9733;</span>{{s.name}}
+              <span class="badge" [class.open]="isOpenNow(s)">{{ isOpenNow(s) ? 'Open now' : 'Closed' }}</span>
+            </div>
+            <div class="store-addr">{{s.addr}}, {{s.city}} {{s.zip}}</div>
+            <div class="store-phone">{{s.phone}}</div>
           </div>
-          <div class="store-addr">{{s.addr}}, {{s.city}} {{s.zip}}</div>
-          <div class="store-phone">{{s.phone}}</div>
         </li>
       </ul>
       <p *ngIf="filtered.length == 0" class="empty">No stores found for "{{searchText}}"</p>
@@ -39,6 +42,7 @@
 
     <section class="panel" *ngIf="selected">
       <h2>{{detail.name}} <span class="loading" *ngIf="detailLoading">updating...</span></h2>
+      <img class="store-photo" *ngIf="detail.photo" [src]="detail.photo" [alt]="detail.name" />
       <p class="p-addr">{{detail.addr}}<br>{{detail.city}} {{detail.zip}}</p>
       <p class="p-phone"><a href="tel:{{detail.phone}}">{{detail.phone}}</a></p>
       <a class="dir" target="_blank" href="https://www.google.com/maps/search/?api=1&query={{detail.lat}},{{detail.lon}}">Get directions</a>

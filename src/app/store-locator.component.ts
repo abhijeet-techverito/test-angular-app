@@ -22,7 +22,8 @@ export class StoreLocatorComponent implements OnInit {
       hours: 'Mon-Sat 10:00-21:00, Sun 12:00-18:00',
       services: ['Fitting rooms', 'Click & collect', 'Alterations'],
       lat: 51.5154, lon: -0.1426,
-      featuredSlug: 'classic-crew-tee'
+      featuredSlug: 'classic-crew-tee',
+      photo: 'https://picsum.photos/seed/store-1/640/400'
     },
     {
       id: 2,
@@ -34,7 +35,8 @@ export class StoreLocatorComponent implements OnInit {
       hours: 'Mon-Thu 10:00-22:00, Fri-Sat 10:00-02:00, Sun 12:00-18:00',
       services: ['Fitting rooms'],
       lat: 51.5136, lon: -0.1365,
-      featuredSlug: 'vintage-wash-tee'
+      featuredSlug: 'vintage-wash-tee',
+      photo: 'https://picsum.photos/seed/store-2/640/400'
     },
     {
       id: 3,
@@ -46,7 +48,8 @@ export class StoreLocatorComponent implements OnInit {
       hours: 'Mon-Sat 10:00-20:00, Sun 11:00-17:00',
       services: ['Click & collect'],
       lat: 53.4839, lon: -2.2395,
-      featuredSlug: 'essential-pullover-hoodie'
+      featuredSlug: 'essential-pullover-hoodie',
+      photo: 'https://picsum.photos/seed/store-3/640/400'
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export class StoreLocatorComponent implements OnInit {
       hours: 'Mon-Sun 11:00-00:00',
       services: ['Fitting rooms', 'Repairs'],
       lat: 53.4833, lon: -2.2358,
-      featuredSlug: 'slim-fit-jeans'
+      featuredSlug: 'slim-fit-jeans',
+      photo: 'https://picsum.photos/seed/store-4/640/400'
     },
     {
       id: 5,
@@ -70,30 +74,38 @@ export class StoreLocatorComponent implements OnInit {
       hours: 'Mon-Sat 09:30-18:30, Sun 11:00-17:00',
       services: ['Fitting rooms', 'Click & collect'],
       lat: 55.9524, lon: -3.1975,
-      featuredSlug: 'quilted-hooded-jacket'
+      featuredSlug: 'quilted-hooded-jacket',
+      photo: 'https://picsum.photos/seed/store-5/640/400'
     },
     {id: 6, name: 'Broadmead', city: 'Bristol', addr: '31 Broadmead', zip: 'BS1 3DX', phone: '0117 496 0131',
      hours: 'Mon-Sat 09:00-18:00, Sun 11:00-17:00', services: ['Click & collect'],
-     lat: 51.4590, lon: -2.5878, featuredSlug: 'classic-crew-tee'},
+     lat: 51.4590, lon: -2.5878, featuredSlug: 'classic-crew-tee',
+     photo: 'https://picsum.photos/seed/store-6/640/400'},
     {id: 7, name: 'Briggate', city: 'Leeds', addr: '8 Briggate', zip: 'LS1 6AE', phone: '0113 496 0170',
      hours: 'Mon-Sat 09:00-18:00, Sun closed', services: ['Fitting rooms'],
-     lat: 53.7973, lon: -1.5416, featuredSlug: 'zip-up-fleece-hoodie'},
+     lat: 53.7973, lon: -1.5416, featuredSlug: 'zip-up-fleece-hoodie',
+     photo: 'https://picsum.photos/seed/store-7/640/400'},
     {id: 8, name: 'Bullring', city: 'Birmingham', addr: 'Unit 14, Bullring', zip: 'B5 4BU', phone: '0121 496 0199',
      hours: 'Mon-Fri 10:00-20:00, Sat 09:00-20:00, Sun 11:00-17:00', services: ['Fitting rooms', 'Click & collect', 'Alterations'],
-     lat: 52.4774, lon: -1.8940, featuredSlug: 'oversized-logo-hoodie'},
+     lat: 52.4774, lon: -1.8940, featuredSlug: 'oversized-logo-hoodie',
+     photo: 'https://picsum.photos/seed/store-8/640/400'},
     {id: 9, name: 'Buchanan Galleries', city: 'Glasgow', addr: '220 Buchanan Street', zip: 'G1 2GF', phone: '0141 496 0123',
      hours: 'Mon-Sat 09:30-18:00, Sun 11:00-17:00', services: ['Fitting rooms', 'Click & collect'],
-     lat: 55.8636, lon: -4.2518, featuredSlug: 'essential-pullover-hoodie'},
+     lat: 55.8636, lon: -4.2518, featuredSlug: 'essential-pullover-hoodie',
+     photo: 'https://picsum.photos/seed/store-9/640/400'},
     {id: 10, name: 'Times Square', city: 'New York', addr: '1500 Broadway', zip: '10036', phone: '(212) 555-0114',
      hours: 'Mon-Sun 09:00-23:00', services: ['Fitting rooms', 'Click & collect'],
-     lat: 40.7580, lon: -73.9855, featuredSlug: 'slim-fit-jeans'},
+     lat: 40.7580, lon: -73.9855, featuredSlug: 'slim-fit-jeans',
+     photo: 'https://picsum.photos/seed/store-10/640/400'},
     // --- Q2 additions (list from retail ops) ---
     {id: 11, name: 'Michigan Avenue', city: 'Chicago', addr: '835 N Michigan Ave', zip: '60611', phone: '(312) 555-0168',
      hours: 'Mon-Sat 10:00-20:00, Sun 11:00-18:00', services: ['Click & collect'],
-     lat: 41.8986, lon: -87.6247, featuredSlug: 'quilted-hooded-jacket'},
+     lat: 41.8986, lon: -87.6247, featuredSlug: 'quilted-hooded-jacket',
+     photo: 'https://picsum.photos/seed/store-11/640/400'},
     {id: 12, name: 'SoHo NYC', city: 'New York', addr: '110 Prince Street', zip: '10012', phone: '(212) 555-0191',
      hours: 'Mon-Sat 11:00-20:00, Sun 12:00-18:00', services: ['Fitting rooms'],
-     lat: 40.7249, lon: -73.9979, featuredSlug: 'vintage-wash-tee'},
+     lat: 40.7249, lon: -73.9979, featuredSlug: 'vintage-wash-tee',
+     photo: 'https://picsum.photos/seed/store-12/640/400'},
     {
       id: 13,
       name: "Melrose Avenue",
@@ -104,7 +116,8 @@ export class StoreLocatorComponent implements OnInit {
       hours: "Mon-Sat 10:00-21:00, Sun 11:00-19:00",
       services: ["Fitting rooms", "Click & collect"],
       lat: 34.0838, lon: -118.3711,
-      featuredSlug: "lightweight-summer-hoodie"
+      featuredSlug: "lightweight-summer-hoodie",
+      photo: "https://picsum.photos/seed/store-13/640/400"
     },
     {
       id: 14,
@@ -116,11 +129,13 @@ export class StoreLocatorComponent implements OnInit {
       hours: "Mon-Sat 10:00-20:00, Sun closed",
       services: ["Fitting rooms"],
       lat: 52.5036, lon: 13.3311,
-      featuredSlug: "classic-crew-tee"
+      featuredSlug: "classic-crew-tee",
+      photo: "https://picsum.photos/seed/store-14/640/400"
     },
     {id: 15, name: 'Grafton Street', city: 'Dublin', addr: '70 Grafton Street', zip: 'D02 XY45', phone: '01 555 0177',
      hours: 'Mon-Sat 09:30-19:00, Sun 12:00-18:00', services: ['Click & collect', 'Alterations'],
-     lat: 53.3412, lon: -6.2603, featuredSlug: 'zip-up-fleece-hoodie'}
+     lat: 53.3412, lon: -6.2603, featuredSlug: 'zip-up-fleece-hoodie',
+     photo: 'https://picsum.photos/seed/store-15/640/400'}
   ];
 
   searchText = '';
@@ -524,7 +539,8 @@ export class StoreLocatorComponent implements OnInit {
             services: found.services,
             lat: found.latitude,
             lon: found.longitude,
-            featuredSlug: found.featured_slug
+            featuredSlug: found.featured_slug,
+            photo: found.photo
           };
         }
         this.detailLoading = false;

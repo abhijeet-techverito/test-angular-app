@@ -15,7 +15,8 @@
     "latitude": 51.5154,
     "longitude": -0.1426,
     "tz": "Europe/London",
-    "featured_slug": "classic-crew-tee"
+    "featured_slug": "classic-crew-tee",
+    "photo": "https://picsum.photos/seed/store-1/640/400"
   },
   {
     "id": 2,
@@ -31,7 +32,8 @@
     "latitude": 51.5136,
     "longitude": -0.1365,
     "tz": "Europe/London",
-    "featured_slug": "vintage-wash-tee"
+    "featured_slug": "vintage-wash-tee",
+    "photo": "https://picsum.photos/seed/store-2/640/400"
   },
   {
     "id": 3,
@@ -47,7 +49,8 @@
     "latitude": 53.4839,
     "longitude": -2.2395,
     "tz": "Europe/London",
-    "featured_slug": "essential-pullover-hoodie"
+    "featured_slug": "essential-pullover-hoodie",
+    "photo": "https://picsum.photos/seed/store-3/640/400"
   },
   {
     "id": 4,
@@ -64,7 +67,8 @@
     "latitude": 53.4833,
     "longitude": -2.2358,
     "tz": "Europe/London",
-    "featured_slug": "slim-fit-jeans"
+    "featured_slug": "slim-fit-jeans",
+    "photo": "https://picsum.photos/seed/store-4/640/400"
   },
   {
     "id": 5,
@@ -81,7 +85,8 @@
     "latitude": 55.9524,
     "longitude": -3.1975,
     "tz": "Europe/London",
-    "featured_slug": "quilted-hooded-jacket"
+    "featured_slug": "quilted-hooded-jacket",
+    "photo": "https://picsum.photos/seed/store-5/640/400"
   },
   {
     "id": 6,
@@ -97,7 +102,8 @@
     "latitude": 51.459,
     "longitude": -2.5878,
     "tz": "Europe/London",
-    "featured_slug": "classic-crew-tee"
+    "featured_slug": "classic-crew-tee",
+    "photo": "https://picsum.photos/seed/store-6/640/400"
   },
   {
     "id": 7,
@@ -113,7 +119,8 @@
     "latitude": 53.7973,
     "longitude": -1.5416,
     "tz": "Europe/London",
-    "featured_slug": "zip-up-fleece-hoodie"
+    "featured_slug": "zip-up-fleece-hoodie",
+    "photo": "https://picsum.photos/seed/store-7/640/400"
   },
   {
     "id": 8,
@@ -131,7 +138,8 @@
     "latitude": 52.4774,
     "longitude": -1.894,
     "tz": "Europe/London",
-    "featured_slug": "oversized-logo-hoodie"
+    "featured_slug": "oversized-logo-hoodie",
+    "photo": "https://picsum.photos/seed/store-8/640/400"
   },
   {
     "id": 9,
@@ -148,7 +156,8 @@
     "latitude": 55.8636,
     "longitude": -4.2518,
     "tz": "Europe/London",
-    "featured_slug": "essential-pullover-hoodie"
+    "featured_slug": "essential-pullover-hoodie",
+    "photo": "https://picsum.photos/seed/store-9/640/400"
   },
   {
     "id": 10,
@@ -165,7 +174,8 @@
     "latitude": 40.758,
     "longitude": -73.9855,
     "tz": "America/New_York",
-    "featured_slug": "slim-fit-jeans"
+    "featured_slug": "slim-fit-jeans",
+    "photo": "https://picsum.photos/seed/store-10/640/400"
   },
   {
     "id": 11,
@@ -181,7 +191,8 @@
     "latitude": 41.8989,
     "longitude": -87.6247,
     "tz": "America/Chicago",
-    "featured_slug": "quilted-hooded-jacket"
+    "featured_slug": "quilted-hooded-jacket",
+    "photo": "https://picsum.photos/seed/store-11/640/400"
   },
   {
     "id": 12,
@@ -198,7 +209,8 @@
     "latitude": 40.7249,
     "longitude": -73.9979,
     "tz": "America/New_York",
-    "featured_slug": "vintage-wash-tee"
+    "featured_slug": "vintage-wash-tee",
+    "photo": "https://picsum.photos/seed/store-12/640/400"
   },
   {
     "id": 13,
@@ -215,7 +227,8 @@
     "latitude": 34.0838,
     "longitude": -118.3711,
     "tz": "America/Los_Angeles",
-    "featured_slug": "lightweight-summer-hoodie"
+    "featured_slug": "lightweight-summer-hoodie",
+    "photo": "https://picsum.photos/seed/store-13/640/400"
   },
   {
     "id": 14,
@@ -231,6 +244,7 @@
     "latitude": 52.5036,
     "longitude": 13.3311,
     "tz": "Europe/Berlin",
-    "featured_slug": "classic-crew-tee"
+    "featured_slug": "classic-crew-tee",
+    "photo": "https://picsum.photos/seed/store-14/640/400"
   }
 ]
