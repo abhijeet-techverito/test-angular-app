@@ -719,15 +719,21 @@ export class StoreLocatorComponent implements OnInit {
     }
     console.log('callback payload', payload);
 
-    // fake send until the crm hook is ready
-    setTimeout(() => {
-      this.cbBusy = false;
-      this.cbSent = true;
-      this.cbRef = 'CB-' + (1000 + this.cbHistory.length + 1);
-      this.cbHistory.push(payload);
-      f.resetForm({ slot: 'morning', topic: 'general', marketing: false });
-      this.cb = { name: '', phone: '', email: '', slot: 'morning', topic: 'general', note: '', marketing: false };
-    }, 800);
+    // secured CRM endpoint - the auth interceptor attaches the bearer token
+    this.http.post<any>('api/callbacks', payload).subscribe(
+      (res) => {
+        this.cbBusy = false;
+        this.cbSent = true;
+        this.cbRef = (res && res.reference) ? res.reference : 'CB-' + (1000 + this.cbHistory.length + 1);
+        this.cbHistory.push(payload);
+        f.resetForm({ slot: 'morning', topic: 'general', marketing: false });
+        this.cb = { name: '', phone: '', email: '', slot: 'morning', topic: 'general', note: '', marketing: false };
+      },
+      () => {
+        this.cbBusy = false;
+        this.cbError = 'Could not send your request. Please try again.';
+      }
+    );
   }
 
   newCallback() {

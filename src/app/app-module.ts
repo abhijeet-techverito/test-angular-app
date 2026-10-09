@@ -1,11 +1,12 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { App } from './app';
 import { StoreLocatorComponent } from './store-locator.component';
 import { CitySearchComponent } from './city-search.component';
+import { authInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CitySearchComponent } from './city-search.component';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
   ],
   bootstrap: [App]

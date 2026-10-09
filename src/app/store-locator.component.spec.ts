@@ -1,20 +1,23 @@
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { StoreLocatorComponent } from './store-locator.component';
 import { CitySearchComponent } from './city-search.component';
 
 describe('StoreLocatorComponent', () => {
   let comp: StoreLocatorComponent;
+  let httpMock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
       declarations: [StoreLocatorComponent, CitySearchComponent],
-      providers: [provideHttpClient()]
+      providers: [provideHttpClient(), provideHttpClientTesting()]
     }).compileComponents();
     const cmpRef = TestBed.createComponent(StoreLocatorComponent);
     comp = cmpRef.componentInstance;
+    httpMock = TestBed.inject(HttpTestingController);
     comp.ngOnInit();
   });
 
@@ -76,7 +79,6 @@ describe('StoreLocatorComponent', () => {
   });
 
   it('builds callback numbers or refuses them', () => {
-    vi.useFakeTimers();
     const form: any = { invalid: false, controls: {}, resetForm: () => {} };
     comp.selected = comp.stores.find((x: any) => x.id == 10);
     const send = (phone: string) => {
@@ -84,7 +86,10 @@ describe('StoreLocatorComponent', () => {
       comp.cbBusy = false;
       comp.cbHistory = [];
       comp.submitCallback(form);
-      vi.advanceTimersByTime(1000);
+      const pending = httpMock.match('api/callbacks');
+      if (pending.length) {
+        pending[0].flush({ reference: 'CB-TEST' });
+      }
       return comp.cbHistory.length ? comp.cbHistory[0].phone : comp.cbError;
     };
     expect(send('(212) 555-0114')).toBe('+12125550114');
@@ -92,6 +97,5 @@ describe('StoreLocatorComponent', () => {
     expect(send('call me')).toBe('Please enter a valid phone number');
     comp.selected = comp.stores[0];
     expect(send('020 7946 0100')).toBe('+442079460100');
-    vi.useRealTimers();
   });
 });
