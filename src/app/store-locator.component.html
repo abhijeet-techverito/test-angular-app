@@ -27,6 +27,7 @@
 
   <div class="cols">
     <section class="list">
+      <app-store-count [shown]="filtered.length" [total]="stores.length"></app-store-count>
       <ul class="store-list">
         <li *ngFor="let s of filtered" class="store-item" [id]="'store-' + s.id"
             [class.active]="selected && selected.id == s.id" (click)="selectStore(s)">
