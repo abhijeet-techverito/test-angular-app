@@ -12,6 +12,12 @@
   letter-spacing: -0.5px;
 }
 
+.locator-head .today {
+  margin: 0 0 4px;
+  color: #5a6472;
+  font-size: 14px;
+}
+
 .locator-head .sub {
   margin: 0 0 20px;
   color: #5a6472;

@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { format } from 'date-fns';
 import { CitySearchComponent } from './city-search.component';
 
 @Component({
@@ -139,6 +140,7 @@ export class StoreLocatorComponent implements OnInit {
      photo: 'https://picsum.photos/seed/store-15/640/400'}
   ];
 
+  today = format(new Date(), 'EEEE, d MMMM yyyy');
   searchText = '';
   filtered: any[] = [];
   selected: any = null;
