@@ -1,1 +1,2 @@
-<p class="store-count">Showing {{shown}} of {{total}} stores</p>
+<p class="store-count" *ngIf="shown > 0">Showing {{shown}} of {{total}} stores</p>
+<p class="store-count" *ngIf="shown == 0">No stores match your search</p>

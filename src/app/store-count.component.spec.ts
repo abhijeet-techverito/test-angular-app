@@ -21,4 +21,14 @@ describe('StoreCountComponent', () => {
     const compiled = cmpRef.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('Showing 3 of 15 stores');
   });
+
+  it('shows the empty message when no stores match', () => {
+    const cmpRef = TestBed.createComponent(StoreCountComponent);
+    cmpRef.componentInstance.shown = 0;
+    cmpRef.componentInstance.total = 15;
+    cmpRef.detectChanges();
+    const compiled = cmpRef.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('No stores match your search');
+    expect(compiled.textContent).not.toContain('Showing');
+  });
 });
