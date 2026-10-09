@@ -9,12 +9,19 @@
   flex: 1;
   padding: 11px 36px 11px 14px;
   font-size: 16px;
-  border: 1px solid #b9c0c9;
+  border: 1px solid #1f2a44;
   border-radius: 6px;
+  background: #080a14;
+  color: #cfe7ff;
+  font-family: inherit;
+}
+.cs-input::placeholder {
+  color: #4b577a;
 }
 .cs-input:focus {
-  outline: 2px solid #2b6cb0;
-  border-color: #2b6cb0;
+  outline: 2px solid #00e5ff;
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.45);
 }
 .cs-clear {
   position: absolute;
@@ -22,12 +29,12 @@
   border: 0;
   background: none;
   font-size: 20px;
-  color: #6b7480;
+  color: #6f7fa8;
   cursor: pointer;
 }
 .cs-count {
   font-size: 13px;
-  color: #5a6472;
+  color: #7a8cbd;
   min-width: 80px;
 }
 .cs-suggest {
@@ -38,20 +45,21 @@
   margin: 2px 0 0;
   padding: 0;
   list-style: none;
-  background: #fff;
-  border: 1px solid #d3d8de;
+  background: #0a0c18;
+  border: 1px solid #00e5ff;
   border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.35);
   z-index: 10;
 }
 .cs-suggest li {
   padding: 9px 14px;
   cursor: pointer;
+  color: #cfe7ff;
 }
 .cs-suggest li:hover {
-  background: #eef3f9;
+  background: rgba(0, 229, 255, 0.12);
 }
 .cs-suggest small {
-  color: #7a8493;
+  color: #6f7fa8;
   margin-left: 6px;
 }

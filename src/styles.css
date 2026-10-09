@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
-  background: #f3f5f8;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(255, 43, 214, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(0, 229, 255, 0.12), transparent 40%),
+    #05060f;
+  color: #cfe7ff;
+  font-family: "Share Tech Mono", "Courier New", Consolas, monospace;
 }
